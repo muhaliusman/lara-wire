@@ -2,7 +2,7 @@
     <x-utils.body-title :title="$title" />
     <div class="w-full flex justify-end pb-4">
         <a class="flex items-center justify-between px-3 py-1 text-xs font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue uppercase" href="">
-              <span>Add Item</span>
+              <span>Add User</span>
         </a>
     </div>
     <div class="w-full overflow-hidden rounded-lg shadow-xs border">
@@ -17,6 +17,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                    @foreach ($users as $user)
                     <tr class="text-gray-700 dark:text-gray-400">
                         <td class="px-4 py-3">
                             <div class="flex items-center text-sm">
@@ -29,7 +30,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-semibold">Hans Burger</p>
+                                    <p class="font-semibold">{{ $user->name }}</p>
                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                         10x Developer
                                     </p>
@@ -37,10 +38,10 @@
                             </div>
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            $ 863.45
+                            {{ $user->email }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            6/10/2020
+                            {{ $user->created_at }}
                         </td>
                         <td class="px-4 py-3">
                             <div class="flex items-center space-x-4 text-sm">
@@ -65,78 +66,13 @@
                             </div>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
         <div
-            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9">
-            <span class="flex items-center col-span-3">
-                Showing 21-30 of 100
-            </span>
-            <span class="col-span-2"></span>
-            <!-- Pagination -->
-            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                <nav aria-label="Table navigation">
-                    <ul class="inline-flex items-center">
-                        <li>
-                            <button
-                                class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                                aria-label="Previous">
-                                <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                                    <path
-                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                1
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                2
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                3
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                4
-                            </button>
-                        </li>
-                        <li>
-                            <span class="px-3 py-1">...</span>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                8
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                9
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                                aria-label="Next">
-                                <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                                    <path
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
-            </span>
+            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 ">
+                {{ $users->links() }}
         </div>
     </div>
 </div>

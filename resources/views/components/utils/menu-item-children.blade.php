@@ -27,23 +27,21 @@
         ></path>
       </svg>
     </button>
-    <template x-if="sideDropdown === '{{ $item->name }}'">
-      <ul
-        x-transition:enter="transition-all ease-in-out duration-300"
-        x-transition:enter-start="opacity-25 max-h-0"
-        x-transition:enter-end="opacity-100 max-h-xl"
-        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
-        aria-label="submenu"
+    <ul
+      class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+      aria-label="submenu"
+      x-show.transition="sideDropdown === '{{ $item->name }}'"
+      x-show="sideDropdown === '{{ $item->name }}'"
+      x-cloak
+    >
+      @foreach ($item->children as $child)
+      <li
+        class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
       >
-        @foreach ($item->children as $child)
-        <li
-          class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-        >
-          <a class="w-full cursor-pointer" @if (!$child->livewire_component) href="{{ $child->url }}" @else wire:click.prevent="$emit('changeComponent', '{{ $child->livewire_component }}')" @endif>
-            {{ $child->name }}
-          </a>
-        </li>
-        @endforeach
-      </ul>
-    </template>
+        <a class="w-full cursor-pointer" @if (!$child->livewire_component) href="{{ $child->url }}" @else wire:click.prevent="$emit('changeComponent', '{{ $child->livewire_component }}')" @endif>
+          {{ $child->name }}
+        </a>
+      </li>
+      @endforeach
+    </ul>
   </li>

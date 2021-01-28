@@ -1,6 +1,14 @@
 import feather from 'feather-icons';
 
 window.data = {
+  pushStateUrl(url) {
+    if (history.pushState) {
+      history.pushState('data to be passed', 'Title', window.location.href);
+      window.history.pushState('object or string', 'Title', url);
+    } else {
+      document.location.href = url;
+    }
+  },
   isSideMenuOpen: false,
   toggleSideMenu() {
     this.isSideMenuOpen = !this.isSideMenuOpen

@@ -44,7 +44,7 @@ class MenuSeeder extends Seeder
                 'id' => '306cdeb3-f6c6-470b-b9a0-a9b6789672af',
                 'name' => 'User',
                 'parent_id' => 'f241d04b-2fcf-4a18-af86-7fc8d742df10',
-                'livewire_component' => 'user.index',
+                'livewire_component' => 'users.index',
                 'url' => '/users',
                 'icon' => null,
                 'order_index' => 3,
