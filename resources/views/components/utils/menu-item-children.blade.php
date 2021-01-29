@@ -38,7 +38,7 @@
       <li
         class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
       >
-        <a class="w-full cursor-pointer" @if (!$child->livewire_component) href="{{ $child->url }}" @else wire:click.prevent="$emit('changeComponent', '{{ $child->livewire_component }}')" @endif>
+        <a x-on:click="pushStateUrl('{{ $child->url }}')" class="w-full cursor-pointer" @if (!$child->livewire_component) href="{{ $child->url }}" @else wire:click="$emit('changeComponent', '{{ $child->livewire_component }}')" @endif>
           {{ $child->name }}
         </a>
       </li>

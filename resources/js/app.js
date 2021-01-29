@@ -2,12 +2,8 @@ import feather from 'feather-icons';
 
 window.data = {
   pushStateUrl(url) {
-    if (history.pushState) {
-      history.pushState('data to be passed', 'Title', window.location.href);
-      window.history.pushState('object or string', 'Title', url);
-    } else {
-      document.location.href = url;
-    }
+    history.pushState(null, null, location.href);
+    history.replaceState(null, null, url);
   },
   isSideMenuOpen: false,
   toggleSideMenu() {

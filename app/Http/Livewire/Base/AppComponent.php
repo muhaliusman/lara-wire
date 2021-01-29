@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Base;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AppComponent extends Component
 {
+    use WithPagination;
+
     public $component = 'dashboard.index';
-    public $test = false;
 
     protected $listeners = ['changeComponent'];
 

@@ -18,4 +18,9 @@ class Index extends Component
             'users' => User::latest()->paginate(10),
         ]);
     }
+
+    public function paginationView()
+    {
+        return 'components.utils.pagination';
+    }
 }
