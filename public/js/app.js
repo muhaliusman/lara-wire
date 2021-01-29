@@ -55,14 +55,17 @@ window.data = {
   closeModal: function closeModal() {
     this.isModalOpen = false;
     this.trapCleanup();
+  },
+  consoleLog: function consoleLog(data) {
+    console.log(data);
   }
 };
-
-var initIcon = function initIcon() {
-  feather_icons__WEBPACK_IMPORTED_MODULE_0___default().replace();
-};
-
-initIcon();
+feather_icons__WEBPACK_IMPORTED_MODULE_0___default().replace();
+document.addEventListener("DOMContentLoaded", function () {
+  Livewire.hook('element.updated', function (el, component) {
+    feather_icons__WEBPACK_IMPORTED_MODULE_0___default().replace();
+  });
+});
 
 /***/ }),
 

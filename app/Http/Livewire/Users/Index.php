@@ -11,11 +11,19 @@ class Index extends Component
     use WithPagination;
 
     public $title = 'List User';
+    public $perPage = 10;
+    public $search;
+
+    protected $queryString = ['search'];
 
     public function render()
     {
         return view('livewire.user.index', [
-            'users' => User::latest()->paginate(10),
+            'users' => User::where('name', 'like', '%'.$this->search.'%')
+                ->orWhere('email', 'like', '%'.$this->search.'%')
+                ->latest()
+                ->paginate($this->perPage)
+                ->onEachSide(1),
         ]);
     }
 

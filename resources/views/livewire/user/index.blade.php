@@ -1,12 +1,45 @@
 <div class="container px-6 mx-auto grid">
 	<x-utils.body-title :title="$title" />
 	<div class="w-full flex justify-end pb-4">
-		<a class="flex items-center justify-between px-3 py-1 text-xs font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue uppercase" >
+		<a class="flex items-center justify-between px-4 py-2 text-xs font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue uppercase" >
 			<span>Add User</span>
 		</a>
 	</div>
+	<div class="w-full grid grid-cols-2 gap-4 mb-3">
+		<div>
+			<input
+				class="block w-full mt-1 text-sm focus:border-blue-400 focus:outline-none focus:shadow-outline-purple form-input border"
+				placeholder="Search"
+				wire:model="search"
+			/>
+		</div>
+		<div>
+			<label class="block text-sm">
+                <select
+                	class="border inline-block float-right mt-1 text-sm form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple w-20"
+					wire:model="perPage"
+				>
+				<option>5</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>50</option>
+				  <option>100</option>
+				  <option>300</option>
+				</select>
+				<span class="text-gray-700 inline-block w-1/3 float-right text-right pt-3 pr-3">
+					Show
+				</span>
+             </label>
+		</div>
+	</div>
 	<div class="w-full overflow-hidden rounded-lg shadow-xs border">
-		<div class="w-full overflow-x-auto">
+		<div class="w-full overflow-x-auto relative">
+			<div
+				class="h-full absolute bottom-0 w-full pt-48 text-center bg-opacity-5 bg-gray-600"
+				wire:loading wire:target="perPage, gotoPage"
+			>
+				<span class="uppercase font-medium">Processing</span>
+			</div>
 			<table class="w-full whitespace-no-wrap">
 				<thead>
 					<tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">

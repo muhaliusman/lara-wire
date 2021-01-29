@@ -1,5 +1,5 @@
 <div>
-	@if ($paginator->hasPages())
+    @if ($paginator->hasPages())
 		<nav
 			role="navigation"
 			aria-label="Pagination Navigation"
@@ -43,38 +43,35 @@
 									</svg>
 								</button>
 							</li>
+							{{-- Pagination Elements --}}
 							@foreach ($elements as $element)
-								@foreach ($element as $page => $url)
-									@if ($paginator->currentPage() > 4 && $page === 2)
-										<li>
-											<span class="px-3 py-1">...</span>
-										</li>
-									@endif
-									@if ($page == $paginator->currentPage())
-										<li wire:key="paginator-page-{{ $page }}">
-											<button class="px-3 py-1 text-white transition-colors duration-150 bg-blue-600 border border-r-0 border-blue-600 rounded-md focus:outline-none focus:shadow-outline-blue">
+								{{-- "Three Dots" Separator --}}
+								@if (is_string($element))
+									<li aria-disabled="true">
+										<span class="px-3 py-1">{{ $element }}</span>
+									</li>
+								@endif
+
+								{{-- Array Of Links --}}
+								@if (is_array($element))
+									@foreach ($element as $page => $url)
+										<li wire:key="paginator-page-{{ $page }}" aria-current="page">
+											@if ($page == $paginator->currentPage())
+												<span class="px-3 py-1 text-white transition-colors duration-150 bg-blue-600 border border-r-0 border-blue-600 rounded-md focus:outline-none focus:shadow-outline-blue">
 													{{ $page }}
-											</button>
+												</span>
+											@else
+												<button
+													class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue"
+													wire:click="gotoPage({{ $page }})"
+													aria-label="{{ __('Go to page :page', ['page' => $page]) }}"
+												>
+													{{ $page }}
+												</button>
+											@endif
 										</li>
-									@elseif ($page === $paginator->currentPage() + 1 || $page === $paginator->currentPage() + 2 ||
-										$page === $paginator->currentPage() - 1 || $page === $paginator->currentPage() - 2 || $page ===
-										$paginator->lastPage() || $page === 1)
-										<li wire:key="paginator-page-{{ $page }}">
-											<button
-												class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue"
-												wire:click="gotoPage({{ $page }})"
-											>
-												{{ $page }}
-											</button>
-										</li>
-									@endif
-									@if ($paginator->currentPage() < $paginator->lastPage() - 3 && $page === $paginator->lastPage()
-											- 1)
-										<li>
-											<span class="px-3 py-1">...</span>
-										</li>
-									@endif
-								@endforeach
+									@endforeach
+								@endif
 							@endforeach
 							<li>
 								<button
@@ -101,6 +98,6 @@
 					</nav>
 				</div>
 			</div>
-		</nav>
-	@endif
+        </nav>
+    @endif
 </div>

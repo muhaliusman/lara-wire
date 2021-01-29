@@ -43,11 +43,16 @@ window.data = {
   closeModal() {
     this.isModalOpen = false
     this.trapCleanup()
+  },
+  consoleLog(data) {
+    console.log(data);
   }
 }
 
-const initIcon = () => {
-  feather.replace();
-}
+feather.replace();
 
-initIcon();
+document.addEventListener("DOMContentLoaded", () => {
+  Livewire.hook('element.updated', (el, component) => {
+    feather.replace();
+  });
+});
