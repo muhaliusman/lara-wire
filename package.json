@@ -21,7 +21,7 @@
         "tailwindcss": "^2.0.2"
     },
     "dependencies": {
-        "alpinejs": "^2.8.0",
-        "feather-icons": "^4.28.0"
+        "@fortawesome/fontawesome-free": "^5.15.2",
+        "alpinejs": "^2.8.0"
     }
 }

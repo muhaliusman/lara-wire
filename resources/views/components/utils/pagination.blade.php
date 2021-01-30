@@ -23,7 +23,7 @@
 						<ul class="inline-flex items-center">
 							<li>
 								<button
-									class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-blue @if ($paginator->onFirstPage()) disabled:opacity-50 @endif"
+									class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-brown @if ($paginator->onFirstPage()) disabled:opacity-50 @endif"
 									aria-label="Previous"
 									rel="prev"
 									wire:click="previousPage"
@@ -57,12 +57,12 @@
 									@foreach ($element as $page => $url)
 										<li wire:key="paginator-page-{{ $page }}" aria-current="page">
 											@if ($page == $paginator->currentPage())
-												<span class="px-3 py-1 text-white transition-colors duration-150 bg-blue-600 border border-r-0 border-blue-600 rounded-md focus:outline-none focus:shadow-outline-blue">
+												<span class="px-3 py-1 text-white transition-colors duration-150 bg-brown-600 border border-r-0 border-brown-600 rounded-md focus:outline-none focus:shadow-outline-brown">
 													{{ $page }}
 												</span>
 											@else
 												<button
-													class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue"
+													class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-brown"
 													wire:click="gotoPage({{ $page }})"
 													aria-label="{{ __('Go to page :page', ['page' => $page]) }}"
 												>
@@ -75,7 +75,7 @@
 							@endforeach
 							<li>
 								<button
-									class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-blue @if ($paginator->hasMorePages()) disabled:opacity-50 @endif"
+									class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-brown @if ($paginator->hasMorePages()) disabled:opacity-50 @endif"
 									wire:click="nextPage"
 									aria-label="Next"
 									dusk="nextPage.after"

@@ -13,7 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/alpine.js', 'public/js')
-    .js('resources/js/turbolink.js', 'public/js')
     .sourceMaps(true, 'source-map')
     .postCss('resources/css/app.css', 'public/css', [
         require("tailwindcss")

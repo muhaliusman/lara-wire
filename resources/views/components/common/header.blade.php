@@ -1,7 +1,7 @@
 <header class="z-10 py-4 bg-white shadow-md">
-	<div class="container flex items-center justify-between h-full px-6 mx-auto text-blue-600">
+	<div class="container flex items-center justify-between h-full px-6 mx-auto text-brown-600">
 		<button
-			class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-blue"
+			class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-brown"
 			aria-label="Menu"
 			@click="toggleSideMenu"
 		>

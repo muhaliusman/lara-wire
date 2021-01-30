@@ -10,7 +10,7 @@
 		wire:click.prevent="$emit('changeComponent', '{{ $item->livewire_component }}')"
 		x-on:click="pushStateUrl('{{ $item->livewire_component }}')"
 	>
-		@if ($item->icon) <i class="w-5 h-5" data-feather="{{ $item->icon }}"></i> @endif
+		@if ($item->icon) <i class="{{ $item->icon }}"></i> @endif
 		<span class="ml-4">{{ $item->name }}</span>
 	</a>
 </li>

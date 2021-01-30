@@ -13,7 +13,7 @@
 		@click="toggleSideDropdown('{{ $item->name }}')"
 	>
 		<span class="inline-flex items-center">
-			<i class="w-5 h-5" data-feather="{{ $item->icon }}"></i>
+			<i class="{{ $item->icon }}"></i>
 			<span class="ml-4">{{ $item->name }}</span>
 		</span>
 		<svg

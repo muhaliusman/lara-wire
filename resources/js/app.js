@@ -1,5 +1,3 @@
-import feather from 'feather-icons';
-
 window.data = {
   menuActive: null,
   pushStateUrl(component) {
@@ -51,11 +49,3 @@ window.data = {
     console.log(data);
   }
 }
-
-feather.replace();
-
-document.addEventListener("DOMContentLoaded", () => {
-  Livewire.hook('element.updated', (el, component) => {
-    feather.replace();
-  });
-});
