@@ -1,6 +1,6 @@
 @props(['item'])
 <li class="relative px-6 py-3">
-	<x-utils.menu-active
+	<x-other.menu-active
 		x-show.transition="menuActive === '{{ $item->livewire_component }}'"
 		x-show="menuActive === '{{ $item->livewire_component }}'"
 		x-cloak

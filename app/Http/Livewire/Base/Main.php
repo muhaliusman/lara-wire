@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Base;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class AppComponent extends Component
+class Main extends Component
 {
     use WithPagination;
 
@@ -28,13 +28,13 @@ class AppComponent extends Component
                 abort(404);
             }
         }
-        $this->emit('setActiveComponent', $component);
+
         $this->component = $component;
     }
 
     public function render()
     {
-        return view('livewire.base.app-component')
+        return view('livewire.base.main')
             ->layout('layouts.app', ['component' => $this->component]);
     }
 

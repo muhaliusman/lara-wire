@@ -11,7 +11,7 @@ class Index extends Component
     use WithPagination;
 
     public $title = 'List User';
-    public $perPage = 10;
+    public $perPage = 5;
     public $search;
 
     protected $queryString = ['search'];
@@ -29,6 +29,6 @@ class Index extends Component
 
     public function paginationView()
     {
-        return 'components.utils.pagination';
+        return 'components.other.pagination';
     }
 }

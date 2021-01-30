@@ -9,5 +9,10 @@ return [
     /**
      *  Root component
      */
-    'root_component' => 'dashboard.index'
+    'root_component' => 'dashboard.index',
+
+    /**
+     * Redirect setelah login
+     */
+    'redirect_to' => '/dashboard'
 ];

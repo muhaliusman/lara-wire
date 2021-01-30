@@ -17,10 +17,10 @@
 		class="flex h-screen bg-gray-60"
 		:class="{ 'overflow-hidden': isSideMenuOpen }"
 	>
-		<livewire:base.sidebar-component />
+		<livewire:base.sidebar />
 
 		<div class="flex flex-col flex-1">
-			<x-common.header />
+			<x-main.header />
 			{{ $slot }}
 		</div>
 	</div>

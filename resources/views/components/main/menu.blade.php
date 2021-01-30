@@ -17,13 +17,13 @@
 	@endif
 >
 	<div class="py-4 text-gray-500">
-		<x-utils.sidebar-title />
+		<x-title.sidebar />
 		<ul class="mt-6">
 			@foreach ($menu as $index => $item)
 				@if ($item->children->count())
-				<x-utils.menu-item-children :item="$item" />
+				<x-main.menu-item-children :item="$item" />
 				@elseif (!$item->children->count() && !$item->parent)
-				<x-utils.menu-item :item="$item" />
+				<x-main.menu-item :item="$item" />
 				@endif
 			@endforeach
 		</ul>

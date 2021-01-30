@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Livewire\Base\AppComponent;
-use App\Http\Livewire\Base\AuthComponent;
+use App\Http\Livewire\Base\Auth;
+use App\Http\Livewire\Base\Main;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +27,5 @@ for ($i = 1; $i <= config('larawire.component_tree'); $i++) {
  * misal component livewire bernama User\ComponenSatu
  * maka route yang dibolehkan adalah base_url/user/component-satu
  */
-Route::get('auth/{component?}', AuthComponent::class);
-Route::get($routeTree, AppComponent::class);
+Route::get('auth/{component}', Auth::class);
+Route::get($routeTree, Main::class);

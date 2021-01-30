@@ -1,3 +1,3 @@
 <div class="container px-6 mx-auto grid">
-  <x-utils.body-title :title="$title" />
+  <x-title.main-page :title="$title" />
 </div>

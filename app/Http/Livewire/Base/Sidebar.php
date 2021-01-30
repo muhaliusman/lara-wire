@@ -5,13 +5,13 @@ namespace App\Http\Livewire\Base;
 use App\Models\Menu;
 use Livewire\Component;
 
-class SidebarComponent extends Component
+class Sidebar extends Component
 {
     public $menu = [];
 
     public function render()
     {
-        return view('livewire.base.sidebar-component');
+        return view('livewire.base.sidebar');
     }
 
     public function mount()

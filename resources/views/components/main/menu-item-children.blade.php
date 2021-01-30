@@ -1,7 +1,8 @@
 @props(['item'])
+
 <li class="relative px-6 py-3">
 	@foreach ($item->children as $child)
-	<x-utils.menu-active
+	<x-other.menu-active
 		x-show.transition="menuActive === '{{ $child->livewire_component }}'"
 		x-show="menuActive === '{{ $child->livewire_component }}'"
 		x-cloak
