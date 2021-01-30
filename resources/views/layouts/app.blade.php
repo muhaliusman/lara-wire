@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html x-data="data" lang="en">
+<html x-data="data" lang="en" x-init="menuActive = '{{ $component }}'">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />

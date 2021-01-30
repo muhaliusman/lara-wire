@@ -15,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$routeTree = '/';
+for ($i = 1; $i <= config('larawire.component_tree'); $i++) {
+    $routeTree .= "{component_{$i}?}/";
+}
 
-Route::get('/{folder?}/{component?}', AppComponent::class);
+/**
+ * Route format
+ *
+ * base_url/{folder}/{folder}/../{component}
+ * menggunankan dash format.
+ * misal component livewire bernama User\ComponenSatu
+ * maka route yang dibolehkan adalah base_url/user/component-satu
+ */
+Route::get($routeTree, AppComponent::class);

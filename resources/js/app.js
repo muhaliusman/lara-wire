@@ -1,9 +1,12 @@
 import feather from 'feather-icons';
 
 window.data = {
-  pushStateUrl(url) {
+  menuActive: null,
+  pushStateUrl(component) {
+    let url = component.replace(".", "/").replace("index", '');
     history.pushState(null, null, location.href);
     history.replaceState(null, null, url);
+    this.menuActive = component;
   },
   isSideMenuOpen: false,
   toggleSideMenu() {

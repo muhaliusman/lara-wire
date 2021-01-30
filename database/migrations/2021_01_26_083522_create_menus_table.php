@@ -20,7 +20,6 @@ class CreateMenusTable extends Migration
             $table->foreign('parent_id')->references('id')->on('menus');
             $table->string('name');
             $table->string('livewire_component')->nullable();
-            $table->string('url')->default('#');
             $table->string('icon')->nullable();
             $table->tinyInteger('order_index')->default(0);
             $table->enum('published', ['0', '1'])->default('1');

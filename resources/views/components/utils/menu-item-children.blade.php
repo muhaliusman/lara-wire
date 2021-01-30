@@ -1,10 +1,12 @@
 @props(['item'])
-@foreach ($item->children as $child)
-	@if (url($child->url) === url()->current())
-		<x-utils.menu-active />
-	@endif
-@endforeach
 <li class="relative px-6 py-3">
+	@foreach ($item->children as $child)
+	<x-utils.menu-active
+		x-show.transition="menuActive === '{{ $child->livewire_component }}'"
+		x-show="menuActive === '{{ $child->livewire_component }}'"
+		x-cloak
+	/>
+	@endforeach
 	<button
 		class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
 		aria-haspopup="true"
@@ -38,8 +40,8 @@
 			<li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
 				<a
 					class="w-full cursor-pointer"
-					@if (!$child->livewire_component) href="{{ $child->url }}" @else wire:click="$emit('changeComponent', '{{ $child->livewire_component }}')" @endif
-					x-on:click="pushStateUrl('{{ $child->url }}')"
+					wire:click="$emit('changeComponent', '{{ $child->livewire_component }}')"
+					x-on:click="pushStateUrl('{{ $child->livewire_component }}')"
 				>
 					{{ $child->name }}
 				</a>

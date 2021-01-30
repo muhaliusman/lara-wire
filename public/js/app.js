@@ -13,9 +13,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var feather_icons__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(feather_icons__WEBPACK_IMPORTED_MODULE_0__);
 
 window.data = {
-  pushStateUrl: function pushStateUrl(url) {
+  menuActive: null,
+  pushStateUrl: function pushStateUrl(component) {
+    var url = component.replace(".", "/").replace("index", '');
     history.pushState(null, null, location.href);
     history.replaceState(null, null, url);
+    this.menuActive = component;
   },
   isSideMenuOpen: false,
   toggleSideMenu: function toggleSideMenu() {
