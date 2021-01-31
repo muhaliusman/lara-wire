@@ -27,5 +27,4 @@ for ($i = 1; $i <= config('larawire.component_tree'); $i++) {
  * misal component livewire bernama User\ComponenSatu
  * maka route yang dibolehkan adalah base_url/user/component-satu
  */
-Route::get('auth/{component}', Auth::class);
-Route::get($routeTree, Main::class)->middleware('auth');
+Route::get($routeTree, Main::class);

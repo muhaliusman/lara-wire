@@ -12,5 +12,9 @@
         <x-button.primary-block :type="'submit'" :label="'Login'" />
     </form>
     <hr class="my-8" />
-    <x-other.primary-link :label="'Forgot your password?'" />
+    <x-other.primary-link
+        :label="'Forgot your password?'"
+        wire:click.prevent="$emit('changeComponent', 'auth.forgot-password')"
+		x-on:click="pushStateUrl('auth.forgot-password')"
+    />
 </div>

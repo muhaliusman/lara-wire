@@ -13,6 +13,9 @@ class Index extends Component
     public $title = 'List User';
     public $perPage = 5;
     public $search;
+    public $middleware = [
+        'auth'
+    ];
 
     protected $queryString = ['search'];
 

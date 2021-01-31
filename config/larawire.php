@@ -14,5 +14,14 @@ return [
     /**
      * Redirect setelah login
      */
-    'redirect_to' => '/dashboard'
+    'redirect_to' => '/dashboard',
+
+    /**
+     * Auth component
+     */
+    'auth_components' => [
+        'auth.login',
+        'auth.forgot-password',
+        'auth.reset-password'
+    ],
 ];

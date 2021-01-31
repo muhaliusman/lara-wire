@@ -21,21 +21,26 @@ class Main extends Component
             $component = implode('.', $params);
         }
 
-        if (!$this->checkClassAvailibility($component)) {
+        if (!$compClassName = $this->getClass($component)) {
             // cek sekali lagi dengan asumsi ada class index di dalamnya
             $component .= '.index';
-            if (!$this->checkClassAvailibility($component)) {
+            if (!$compClassName = $this->getClass($component)) {
                 abort(404);
             }
         }
+
+        $compClass = app($compClassName);
+        dd($compClass->middleware);
 
         $this->component = $component;
     }
 
     public function render()
     {
+        $layout = in_array($this->component, config('larawire.auth_components')) ? 'layouts.auth' : 'layouts.app';
+
         return view('livewire.base.main')
-            ->layout('layouts.app', ['component' => $this->component]);
+                ->layout($layout, ['component' => $this->component]);
     }
 
     public function changeComponent($component)
@@ -50,7 +55,7 @@ class Main extends Component
         return redirect()->to('/auth/login');
     }
 
-    private function checkClassAvailibility($component)
+    private function getClass($component)
     {
         $arrComp = explode('.', $component);
         $class = config('livewire.class_namespace');
@@ -58,6 +63,15 @@ class Main extends Component
             $class .= '\\' . str_replace(' ', '', ucwords(str_replace('-', ' ', $comp)));
         }
 
-        return class_exists($class);
+        if (class_exists($class)) {
+            return $class;
+        }
+
+        return false;
+    }
+
+    public function authorizeComponent($component)
+    {
+
     }
 }
