@@ -8,6 +8,6 @@ class Create extends Component
 {
     public function render()
     {
-        return view('livewire.user.create');
+        return view('livewire.users.create');
     }
 }

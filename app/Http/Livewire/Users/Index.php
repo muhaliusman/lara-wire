@@ -18,7 +18,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.user.index', [
+        return view('livewire.users.index', [
             'users' => User::where('name', 'like', '%'.$this->search.'%')
                 ->orWhere('email', 'like', '%'.$this->search.'%')
                 ->latest()

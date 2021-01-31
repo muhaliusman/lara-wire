@@ -3,7 +3,7 @@ window.data = {
   pushStateUrl(component) {
     let url = component.replace(".", "/").replace("index", '');
     history.pushState(null, null, location.href);
-    history.replaceState(null, null, url);
+    history.replaceState(null, null, '/' + url);
     this.menuActive = component;
   },
   isSideMenuOpen: false,

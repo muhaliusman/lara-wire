@@ -1,7 +1,11 @@
 <div class="container px-6 mx-auto grid">
 	<x-title.main-page :title="$title" />
 	<div class="w-full flex justify-end pb-4">
-		<x-button.primary :label="'Add User'" />
+		<x-button.primary
+			:label="'Add User'"
+			wire:click="$emit('changeComponent', 'users.create')"
+			x-on:click="pushStateUrl('users.create')"
+		/>
 	</div>
 	<x-table.default>
 		<x-slot name="header">

@@ -27,4 +27,9 @@ class Auth extends Component
         return view('livewire.base.auth')
             ->layout('layouts.auth');
     }
+
+    public function changeComponent($component)
+    {
+        $this->component = $component;
+    }
 }

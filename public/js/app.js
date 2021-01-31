@@ -12,7 +12,7 @@ window.data = {
   pushStateUrl: function pushStateUrl(component) {
     var url = component.replace(".", "/").replace("index", '');
     history.pushState(null, null, location.href);
-    history.replaceState(null, null, url);
+    history.replaceState(null, null, '/' + url);
     this.menuActive = component;
   },
   isSideMenuOpen: false,
