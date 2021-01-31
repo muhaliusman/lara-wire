@@ -11,7 +11,7 @@ class Main extends Component
 
     public $component;
 
-    protected $listeners = ['changeComponent'];
+    protected $listeners = ['changeComponent', 'logout'];
 
     public function mount(...$params)
     {
@@ -41,6 +41,13 @@ class Main extends Component
     public function changeComponent($component)
     {
         $this->component = $component;
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->to('/auth/login');
     }
 
     private function checkClassAvailibility($component)

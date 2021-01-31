@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
@@ -18,7 +19,16 @@ class Login extends Component
     {
         $this->validate();
 
-        return redirect()->to(config('larawire.redirect_to'));
+        $credentials = [
+            'email' => $this->email,
+            'password' => $this->password
+        ];
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->to(config('larawire.redirect_to'));
+        }
+
+        session()->flash('unauthenticate', 'Ups, your email or password is wrong !!');
     }
 
     public function render()

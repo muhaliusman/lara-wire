@@ -20,7 +20,7 @@
 		<livewire:base.sidebar />
 
 		<div class="flex flex-col flex-1">
-			<x-main.header />
+			<livewire:base.header />
 			{{ $slot }}
 		</div>
 	</div>
