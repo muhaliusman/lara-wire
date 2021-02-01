@@ -3,20 +3,19 @@
 namespace App\Http\Livewire\Users;
 
 use App\Models\User;
+use App\Traits\AuthorizeComponent;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, AuthorizeComponent;
 
     public $title = 'List User';
     public $perPage = 5;
     public $search;
-    public $middleware = [
-        'auth'
-    ];
 
+    protected $auth = true;
     protected $queryString = ['search'];
 
     public function render()

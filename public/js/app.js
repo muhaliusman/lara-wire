@@ -15,6 +15,9 @@ window.data = {
     history.replaceState(null, null, '/' + url);
     this.menuActive = component;
   },
+  removeStateUrl: function removeStateUrl() {
+    history.pushState(null, null, '');
+  },
   isSideMenuOpen: false,
   toggleSideMenu: function toggleSideMenu() {
     this.isSideMenuOpen = !this.isSideMenuOpen;
@@ -58,6 +61,9 @@ window.data = {
     console.log(data);
   }
 };
+document.addEventListener("DOMContentLoaded", function () {
+  history.pushState(null, null, '');
+});
 
 /***/ }),
 

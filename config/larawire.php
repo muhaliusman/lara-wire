@@ -14,7 +14,12 @@ return [
     /**
      * Redirect setelah login
      */
-    'redirect_to' => '/dashboard',
+    'redirect_if_authenticated' => '/dashboard',
+
+    /**
+     * Redirect jika tidak login
+     */
+    'redirect_if_unauthenticated' => '/auth/login',
 
     /**
      * Auth component

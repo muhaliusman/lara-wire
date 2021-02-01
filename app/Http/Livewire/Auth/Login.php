@@ -25,7 +25,7 @@ class Login extends Component
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect()->to(config('larawire.redirect_to'));
+            return redirect()->to(config('larawire.redirect_if_authenticated'));
         }
 
         session()->flash('unauthenticate', 'Ups, your email or password is wrong !!');
