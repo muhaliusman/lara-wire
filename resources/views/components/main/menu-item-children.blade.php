@@ -9,7 +9,7 @@
 	/>
 	@endforeach
 	<button
-		class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+		class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-brown-800"
 		aria-haspopup="true"
 		@click="toggleSideDropdown('{{ $item->name }}')"
 	>
@@ -31,18 +31,19 @@
 		</svg>
 	</button>
 	<ul
-		class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+		class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-brown-500 rounded-md shadow-inner bg-brown-50"
 		aria-label="submenu"
 		x-show.transition="sideDropdown === '{{ $item->name }}'"
 		x-show="sideDropdown === '{{ $item->name }}'"
 		x-cloak
 	>
 		@foreach ($item->children as $child)
-			<li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+			<li class="px-2 py-1 transition-colors duration-150 hover:text-brown-800">
 				<a
 					class="w-full cursor-pointer"
 					wire:click="$emit('changeComponent', '{{ $child->livewire_component }}')"
 					x-on:click="pushStateUrl('{{ $child->livewire_component }}')"
+					:class="{ 'font-bold': menuActive === '{{ $child->livewire_component }}', 'text-red-500' : menuActive === '{{ $child->livewire_component }}' }"
 				>
 					{{ $child->name }}
 				</a>

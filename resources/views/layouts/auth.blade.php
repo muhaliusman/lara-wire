@@ -26,7 +26,10 @@
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
                         src="{{ asset('images/coffee_bg.jpg') }}" alt="Office" />
                 </div>
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                <div class="flex flex-col flex-1 p-8">
+                    <div>
+                        <img class="w-36 mb-8 h-auto" src="{{ asset('images/larawire.png') }}">
+                    </div>
                     {{ $slot }}
                 </div>
             </div>
