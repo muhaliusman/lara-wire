@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Traits;
+namespace App\Traits;
 
 use Illuminate\Support\Str;
 
-trait UuidTrait
+trait Uuid
 {
     /**
      *  Set uuid in creating model

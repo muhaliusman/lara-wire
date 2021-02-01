@@ -17,11 +17,23 @@ trait AuthorizeComponent
 
     public function authorizeCheck()
     {
+        if (property_exists($this, 'permissions')) {
+            if (is_array($this->permissions)) {
+                if (!auth()->check()) {
+                    return redirect(config('larawire.redirect_if_unauthenticated'));
+                }
 
+                $user = auth()->user();
+                if (!$user->hasAllPermissions($this->permissions)) {
+                    abort(403);
+                }
+            }
+        }
     }
 
     public function hydrate()
     {
-        return $this->needAuthenticated();
+        $this->needAuthenticated();
+        $this->authorizeCheck();
     }
 }

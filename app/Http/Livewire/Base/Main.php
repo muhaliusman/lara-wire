@@ -83,7 +83,11 @@ class Main extends Component
         $compClass = app($compClassName);
 
         if (method_exists($compClass, 'needAuthenticated')) {
-            return $compClass->needAuthenticated();
+            $compClass->needAuthenticated();
+        }
+
+        if (method_exists($compClass, 'authorizeCheck')) {
+            $compClass->authorizeCheck();
         }
     }
 }

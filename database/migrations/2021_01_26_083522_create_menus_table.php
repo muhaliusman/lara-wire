@@ -18,6 +18,8 @@ class CreateMenusTable extends Migration
             $table->primary('id');
             $table->uuid('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('menus');
+            $table->uuid('permission_id')->nullable();
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('SET NULL');
             $table->string('name');
             $table->string('livewire_component')->nullable();
             $table->string('icon')->nullable();

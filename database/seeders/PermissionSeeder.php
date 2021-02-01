@@ -16,18 +16,18 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             'dashboard',
-            'user_create',
-            'user_index',
-            'user_edit',
-            'user_delete',
-            'role_index',
-            'role_create',
-            'role_edit',
-            'role_delete',
-            'permission_index',
-            'permission_create',
-            'permission_edit',
-            'permission_delete'
+            'user.create',
+            'user.index',
+            'user.edit',
+            'user.delete',
+            'role.index',
+            'role.create',
+            'role.edit',
+            'role.delete',
+            'permission.index',
+            'permission.create',
+            'permission.edit',
+            'permission.delete'
         ];
 
         foreach ($permissions as $permission) {

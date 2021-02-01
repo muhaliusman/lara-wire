@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Traits\UuidTrait;
+use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HasPermissions;
 
 class User extends Authenticatable implements CanResetPassword
 {
-    use HasFactory, Notifiable, UuidTrait, HasRoles;
+    use HasFactory, Notifiable, Uuid, HasRoles, HasPermissions;
 
     /**
      * @var boolean
