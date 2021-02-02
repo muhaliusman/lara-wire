@@ -21,21 +21,26 @@ class Main extends Component
             $component = implode('.', $params);
         }
 
-        $this->component = $component;
-    }
-
-    public function render()
-    {
-        if (!$compClassName = $this->getClass($this->component)) {
+        if (!$compClassName = $this->getClass($component)) {
             // cek sekali lagi dengan asumsi ada class index di dalamnya
-            $this->component .= '.index';
-            if (!$compClassName = $this->getClass($this->component)) {
+            $component .= '.index';
+            if (!$compClassName = $this->getClass($component)) {
                 abort(404);
             }
         }
 
         $this->authorizeComponent($compClassName);
+        if (in_array($component, config('larawire.auth_components'))) {
+            if (auth()->check()) {
+                return redirect()->to(config('larawire.redirect_if_authenticated'));
+            }
+        }
 
+        $this->component = $component;
+    }
+
+    public function render()
+    {
         $layout = in_array($this->component, config('larawire.auth_components')) ? 'layouts.auth' : 'layouts.app';
 
         return view('livewire.base.main')

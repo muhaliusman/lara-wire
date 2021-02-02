@@ -1,3 +1,5 @@
+import toastr from "toastr";
+
 window.data = {
   menuActive: null,
   pushStateUrl(component) {
@@ -55,4 +57,9 @@ window.data = {
 
 document.addEventListener("DOMContentLoaded", () => {
   history.pushState(null, null, '');
+
+  Livewire.on('successAction', (message, component) => {
+    toastr.success(message)
+    window.data.pushStateUrl(component);
+  });
 });

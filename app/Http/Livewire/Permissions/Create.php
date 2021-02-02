@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Livewire\Permissions;
+
+use App\Models\Permission;
+use Livewire\Component;
+
+class Create extends Component
+{
+    public $title = "Create User";
+    public $name, $guard_name;
+
+    protected $rules = [
+        'name' => 'required|max:191',
+        'guard_name' => 'required|in:web,api',
+    ];
+
+    public function render()
+    {
+        return view('livewire.permissions.create');
+    }
+
+    public function submit()
+    {
+        $this->validate();
+
+        $permission = new Permission();
+        $permission->name = $this->name;
+        $permission->guard_name = $this->guard_name;
+        $permission->save();
+        $this->emit('successAction', 'Ups, your email or password is wrong !!', 'permissions.index');
+        $this->emit('changeComponent', 'permissions.index');
+    }
+}
