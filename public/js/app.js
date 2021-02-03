@@ -52,15 +52,21 @@ window.data = {
       this.sideDropdown = name;
     }
   },
-  isModalOpen: false,
-  trapCleanup: null,
-  openModal: function openModal() {
-    this.isModalOpen = true;
-    this.trapCleanup = focusTrap(document.querySelector('#modal'));
+  idDeleteData: null,
+  deleteData: function deleteData(id) {
+    var modalName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.idDeleteData = id;
+
+    if (modalName !== null) {
+      this.isModalOpen = modalName;
+    }
+  },
+  isModalOpen: null,
+  openModal: function openModal(name) {
+    this.isModalOpen = name;
   },
   closeModal: function closeModal() {
-    this.isModalOpen = false;
-    this.trapCleanup();
+    this.isModalOpen = null;
   },
   consoleLog: function consoleLog(data) {
     console.log(data);
