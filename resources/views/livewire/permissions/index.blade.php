@@ -33,6 +33,8 @@
 						<button
 							class="flex items-center justify-between px-2 py-2 font-medium leading-5 text-yellow-400 rounded-lg focus:outline-none focus:shadow-outline-gray"
 							aria-label="Edit"
+							wire:click="edit('{{ $permission->id }}')"
+
 						>
 							<i class="fas fa-edit"></i>
 						</button>
@@ -51,7 +53,7 @@
 		</x-slot>
 		<x-slot name="pagination">{{ $permissions->links() }}</x-slot>
 	</x-table.default>
-	<x-modal.modal-delete id="modalDelete" x-show="isModalOpen == 'modalDelete'" wire:click="delete">
+	<x-modal.modal-delete id="modalDelete" x-show="isModalOpen == 'modalDelete'" wire:click="delete" wire:ignore>
 		<x-slot name="title">Delete Confirmation</x-slot>
 		<x-slot name="body">
 			<p class="text-sm text-gray-700 dark:text-gray-400">

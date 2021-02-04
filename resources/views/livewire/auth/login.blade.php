@@ -13,8 +13,8 @@
         <x-notification.validation-success :message="$message" />
     @endif
     <form wire:submit.prevent="submit">
-        <x-form.input-text :type="'email'" :name="'email'" :placeholder="'ex: muh.aliusman@yahoo.co.id'" :label="'E-mail'" />
-        <x-form.input-text :type="'password'" :name="'password'" :placeholder="'*****'" :label="'Password'" />
+        <x-form.input-text :type="'email'" :name="'email'" placeholder="ex: muh.aliusman@yahoo.co.id" :label="'E-mail'" />
+        <x-form.input-text :type="'password'" :name="'password'" placeholder="*****" :label="'Password'" />
         <x-button.primary-block :type="'submit'" :label="'Login'" />
     </form>
     <hr class="my-8" />

@@ -51,4 +51,10 @@ class Index extends Component
     {
         return 'components.other.pagination';
     }
+
+    public function edit($id)
+    {
+        $this->emit('changeComponent', 'permissions.edit');
+        $this->emit('getPermission', $id);
+    }
 }

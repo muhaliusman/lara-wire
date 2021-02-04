@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $title = "Create User";
+    public $title = "Create Permission";
     public $name, $guard_name;
 
     protected $rules = [
-        'name' => 'required|max:191',
+        'name' => 'required|max:191|unique:permissions,name',
         'guard_name' => 'required|in:web,api',
     ];
 
@@ -28,6 +28,7 @@ class Create extends Component
         $permission->name = $this->name;
         $permission->guard_name = $this->guard_name;
         $permission->save();
+
         $this->emit('successAction', 'Data saved successfully !', 'permissions.index');
         $this->emit('changeComponent', 'permissions.index');
     }

@@ -16,8 +16,8 @@
     <form wire:submit.prevent="submit">
         <x-form.input-text :type="'hidden'" :name="'email'" />
         <x-form.input-text :type="'hidden'" :name="'token'" />
-        <x-form.input-text :type="'password'" :name="'password'" :placeholder="'*****'" :label="'New Password'" />
-        <x-form.input-text :type="'password'" :name="'password_confirmation'" :placeholder="'*****'" :label="'Password Confirmation'" />
+        <x-form.input-text :type="'password'" :name="'password'" placeholder="*****" :label="'New Password'" />
+        <x-form.input-text :type="'password'" :name="'password_confirmation'" placeholder="*****" :label="'Password Confirmation'" />
         <x-button.primary-block :type="'submit'" :label="'Reset Password'" />
     </form>
     <hr class="my-8" />
