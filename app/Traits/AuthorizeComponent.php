@@ -15,16 +15,29 @@ trait AuthorizeComponent
         }
     }
 
-    public function authorizeCheck()
+    public function authorizeCheck($permission = null)
     {
-        if (property_exists($this, 'permissions')) {
-            if (is_array($this->permissions)) {
-                if (!auth()->check()) {
-                    return redirect(config('larawire.redirect_if_unauthenticated'));
-                }
+        if (!auth()->check()) {
+            return redirect(config('larawire.redirect_if_unauthenticated'));
+        }
 
-                $user = auth()->user();
-                if (!$user->hasAllPermissions($this->permissions)) {
+        $user = auth()->user();
+
+        if (!$permission) {
+            if (property_exists($this, 'permissions')) {
+                if (is_array($this->permissions)) {
+                    if (!$user->hasAllPermissions($this->permissions)) {
+                        abort(403);
+                    }
+                }
+            }
+        } else {
+            if (is_array($permission)) {
+                if (!$user->hasAllPermissions($permission)) {
+                    abort(403);
+                }
+            } else {
+                if (!$user->hasPermissionTo($permission)) {
                     abort(403);
                 }
             }

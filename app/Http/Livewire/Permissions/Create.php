@@ -28,7 +28,7 @@ class Create extends Component
         $permission->name = $this->name;
         $permission->guard_name = $this->guard_name;
         $permission->save();
-        $this->emit('successAction', 'Ups, your email or password is wrong !!', 'permissions.index');
+        $this->emit('successAction', 'Data saved successfully !', 'permissions.index');
         $this->emit('changeComponent', 'permissions.index');
     }
 }

@@ -5,7 +5,6 @@
 	<x-other.menu-active
 		x-show.transition="menuActive === '{{ $child->livewire_component }}'"
 		x-show="menuActive === '{{ $child->livewire_component }}'"
-		x-cloak
 	/>
 	@endforeach
 	<button

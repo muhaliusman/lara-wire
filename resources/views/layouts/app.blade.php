@@ -12,7 +12,7 @@
 		[x-cloak] { display: none }
 	</style>
 </head>
-<body>
+<body x-cloak>
 	<div
 		class="flex h-screen bg-gray-60"
 		:class="{ 'overflow-hidden': isSideMenuOpen }"
